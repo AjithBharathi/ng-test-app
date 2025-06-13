@@ -1,4 +1,5 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { AppService } from '../app.service';
 
 @Component({
   selector: 'app-child-a-one',
@@ -7,28 +8,23 @@ import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/cor
 })
 export class ChildAOneComponent implements OnInit, OnChanges {
   @Input() name = 'Child A One Component';
-  constructor() { }
+  constructor(private appService: AppService) { }
 
   ngOnInit(): void {
-    // Initialization logic can go here
-    console.log('ngOnInit -', this.name)
-    let x = [1,2,3,4,5,6,7,8,9,10];
-    let y = [4,5]
-
-    // console.log(new Map([...y]))
-    let res = x.reduce((acc, curr, index) => {
-      return curr
-    })
-    console.log('Reduce result:', res);
-    // remove index values from x that are in y with less complexity
-
-    x = x.filter((item, index) => !y.includes(index));
-    console.log('Filtered x:', x);
+    this.appService.parentname.subscribe((data: string) => {  
+      this.name = data;
+    }
+    );
    
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-      console.log('ngOnChanges -',this.name)
+      
+  }
+
+  onNameChange(e:any) {
+    const value = e.target.value;
+    this.appService.setData(value);
   }
 
 }

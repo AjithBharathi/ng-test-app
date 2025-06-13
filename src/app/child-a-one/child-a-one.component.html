@@ -1,1 +1,6 @@
-<h1>{{name | titlecase}}</h1>
+<div class="child-container">
+    <h1>{{name | titlecase}}</h1>
+
+    <input type="text" placeholder="Enter name" (keyup)="onNameChange($event)" />
+
+</div>
