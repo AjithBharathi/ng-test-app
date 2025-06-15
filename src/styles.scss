@@ -25,6 +25,12 @@
         border-radius: 4px;
         box-sizing: border-box;
     }
+
+    .error {
+        color: #e20707;
+        font-size: 0.875em;
+        margin-top: 5px;
+    }
 }
 
 form {
@@ -33,6 +39,7 @@ form {
     border: 1px solid #e1e1e1;
     border-radius: 8px;
     padding: 20px;
+    margin-top: 20px;
 
     button {
         background-color: #007bff;

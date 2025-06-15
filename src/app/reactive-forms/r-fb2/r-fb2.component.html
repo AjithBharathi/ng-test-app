@@ -4,11 +4,18 @@
     </div>
     <div class="form-control">
         <label for="name">Name</label>
-        <input type="text" id="name" formControlName="name">
+        <input type="text" id="name" formControlName="name" autocomplete="off">
+        <div class="error" *ngIf="myForm.get('name')?.invalid && myForm.get('name')?.touched">
+            Name is required.
+        </div>
     </div>
+
     <div class="form-control">
         <label for="age">Age</label>
-        <input type="text" id="age" formControlName="age">
+        <input type="number" id="age" formControlName="age">
+        <div class="error" *ngIf="myForm.get('age')?.invalid && myForm.get('age')?.touched">
+            Age is required.
+        </div>
     </div>
     <div class="form-control">
         <label for="sex">Sex</label>
@@ -17,6 +24,9 @@
             <option value="male">Male</option>
             <option value="female">Female</option>
         </select>
+        <div class="error" *ngIf="myForm.get('sex')?.invalid && myForm.get('sex')?.touched">
+            Sex is required.
+        </div>
     </div>
     <div class="form-control">
         <label for="married">Married</label>
@@ -25,6 +35,9 @@
             <option value="yes">Yes</option>
             <option value="no">No</option>
         </select>
+        <div class="error" *ngIf="myForm.get('married')?.invalid && myForm.get('married')?.touched">
+            Married is required when age is greater than 18.
+        </div>
     </div>
     <div class="form-control">
         <button type="button" (click)="resetForm()">Reset</button>
@@ -33,6 +46,21 @@
 </form>
 
 <div class="json-result" *ngIf="formSubmitted">
-    <p>Form Builder Value:</p>
+    <p>Form Value:</p>
     <pre>{{ myForm.value | json }}</pre>
 </div>
+
+
+<form [formGroup]="myForm2">
+    <div class="form-title">
+        <p>Toggle Validator</p>
+    </div>
+    <div class="form-control">
+        <label for="name">Name</label>
+        <input type="text" id="name" formControlName="name" autocomplete="off">
+        <div class="error" *ngIf="myForm2.get('name')?.errors?.['required']">
+            Name is required.
+        </div>
+    </div>
+    <button type="button" (click)="toggleValidators()">Toggle Validation</button>
+</form>
