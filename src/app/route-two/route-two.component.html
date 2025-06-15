@@ -1,0 +1,8 @@
+<p>route-two works!</p>
+<button [routerLink]="['/route-three', 6]">go route 3</button>
+
+<div style="border: 1px solid black; padding: 10px;">
+    <button routerLink="./child-one">child one</button>
+    <button routerLink="./child-two">child two</button>
+    <router-outlet></router-outlet>
+</div>
