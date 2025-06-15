@@ -1,0 +1,68 @@
+<div class="container">
+    <form (ngSubmit)="submitForm()" [formGroup]="myForm">
+        <div class="form-title">
+            <p>Form Array 2 (Employees with form group)</p>
+        </div>
+        <div class="form-control">
+            <label for="industry">Industry</label>
+            <input type="text" id="industry" formControlName="industry">
+            <div class="error" *ngIf="myForm.get('industry')?.invalid && myForm.get('industry')?.touched">
+                Industry is required.
+            </div>
+        </div>
+        <!-- company  -->
+        <div formArrayName="companies" class="form-array" style="border-color: brown;">
+            <div *ngFor="let company of companies.controls; let i = index" [formGroupName]="i" class="form-array-item" 
+            style="border-bottom-color: brown;">
+                <div class="form-control">
+                    <label for="company-{{i}}">Company Name</label>
+                    <input type="text" id="company-{{i}}" formControlName="companyName">
+                    <div class="error"
+                        *ngIf="company.get('companyName')?.invalid && company.get('companyName')?.touched">
+                        Company name is required.
+                    </div>
+                </div>
+                <!-- employee  -->
+                <div formArrayName="employees" class="form-array">
+                    <div *ngFor="let employee of getemployees(i)?.controls; let j = index" [formGroupName]="j"
+                        class="form-array-item">
+                        <div class="form-control">
+                            <label for="name-{{i}}-{{j}}">Employee Name</label>
+                            <input type="text" id="name-{{i}}-{{j}}" formControlName="name">
+                            <div class="error" *ngIf="employee.get('name')?.invalid && employee.get('name')?.touched">
+                                Employee name is required.
+                            </div>
+                        </div>
+                        <div class="form-control">
+                            <button style="background-color: green;" type="button" (click)="removeEmployee(i, j)">Remove Employee</button>
+                        </div>
+                    </div>
+                    <div class="form-control">
+                        <button style="background-color: green;" type="button" (click)="addEmployee(i)"
+                        [disabled]="getemployees(i)?.invalid">Add Employee</button>
+                    </div>
+                </div>
+                <div class="form-control">
+                    <button type="button" (click)="removeCompany(i)" [disabled]="companies.length === 0">Remove
+                        Company</button>
+                </div>
+            </div>
+            <div class="form-control">
+                <button type="button" (click)="addCompany()" 
+                [disabled]="companies.invalid">Add Company</button>
+                <!-- <button type="button" (click)="removeEmployee(i)" [disabled]="employees.length === 0">Remove Last Employee</button> -->
+            </div>
+        </div>
+
+
+        <div class="form-control">
+            <button type="button" (click)="resetForm()">Reset</button>
+            <button type="submit" [disabled]="myForm.invalid">Submit</button>
+        </div>
+    </form>
+
+    <div class="json-result" *ngIf="formSubmitted || true">
+        <p>Form Value:</p>
+        <pre>{{ myForm.value | json }}</pre>
+    </div>
+</div>

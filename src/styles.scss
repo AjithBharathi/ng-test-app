@@ -64,6 +64,11 @@ form {
         cursor: default;
     }
 
+    button:disabled {
+        opacity: 0.5;
+        cursor: default;
+    }
+
     .form-title {
         * {
             font-size: 24px;
@@ -85,7 +90,7 @@ form {
     border-radius: 8px;
     background-color: #f9f9f9;
     width: 50%;
-    margin-top: 15px;
+    margin-top: 20px;
 
     pre {
         margin: 0;
@@ -95,4 +100,18 @@ form {
         word-break: break-all;
         /* Breaks long words */
     }
+}
+
+.form-array {
+    border: 1px solid #dabebe;
+    border-radius: 4px;
+    margin: 0px 10px;
+}
+
+.form-array-item {
+    border-bottom: 1px solid #dabebe;
+}
+
+.container {
+    display: flex;
 }

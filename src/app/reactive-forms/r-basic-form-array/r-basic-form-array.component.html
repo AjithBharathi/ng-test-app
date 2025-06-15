@@ -1,0 +1,52 @@
+<div class="container">
+    <form (ngSubmit)="submitForm()" [formGroup]="myForm">
+        <div class="form-title">
+            <p>Basic Form Array</p>
+        </div>
+        <div class="form-control">
+            <label for="company">Company</label>
+            <input type="text" id="company" formControlName="company">
+            <div class="error" *ngIf="myForm.get('company')?.invalid && myForm.get('company')?.touched">
+                Company is required.
+            </div>
+        </div>
+        <div formArrayName="employees" class="form-array">
+            <div *ngFor="let employee of employees.controls; let i = index" [formGroupName]="i" class="form-array-item">
+                <div class="form-control">
+                    <label for="name-{{i}}">Employee Name</label>
+                    <input type="text" id="name-{{i}}" formControlName="name">
+                    <div class="error" *ngIf="employee.get('name')?.invalid && employee.get('name')?.touched">
+                        Employee name is required.
+                    </div>
+                </div>
+                <div class="form-control">
+                    <label for="position-{{i}}">Position</label>
+                    <input type="text" id="position-{{i}}" formControlName="position">
+                    <div class="error" *ngIf="employee.get('position')?.invalid && employee.get('position')?.touched">
+                        Position is required.
+                    </div>
+                </div>
+                <div class="form-control">
+                    <button type="button" (click)="removeEmployee(i)" 
+                    [disabled]="employees.length === 0">Remove
+                        Employee</button>
+                </div>
+            </div>
+            <div class="form-control">
+                <button type="button" (click)="addEmployee()" [disabled]="employees.invalid">Add Employee</button>
+                <!-- <button type="button" (click)="removeEmployee(i)" [disabled]="employees.length === 0">Remove Last Employee</button> -->
+            </div>
+        </div>
+
+
+        <div class="form-control">
+            <button type="button" (click)="resetForm()">Reset</button>
+            <button type="submit" [disabled]="myForm.invalid">Submit</button>
+        </div>
+    </form>
+
+    <div class="json-result" *ngIf="formSubmitted || true">
+        <p>Form Value:</p>
+        <pre>{{ myForm.value | json }}</pre>
+    </div>
+</div>
