@@ -1,6 +1,27 @@
 <div class="container">
-    <input type="text" placeholder="Enter name" (keyup)="onNameChange($event)" />
-    
+    <div>
+        <h1>{{of1 | async}}</h1>
+        <button (click)="changeof1()">change of 1</button> <br><br>
+        <h1>{{of2}}</h1>
+        <button (click)="getof3()">get of 3</button><br><br>
+        <h1>{{of3Value}}</h1>
+    </div>
+
+    <hr>
+
+    <div>
+        <h1>{{obs1 | async}}</h1>
+        <h1>{{obs2Value}}</h1>
+        <button (click)="onChangeObs2()">change obs 2</button>
+    </div>
+
+    <hr>
+
+    <div>
+        <input type="text" placeholder="Enter name" (keyup)="onNameChange($event)" />
+    </div>
+
+
     <app-child-a-one [name]="'ajith'"></app-child-a-one>
 
     <app-child-b-one></app-child-b-one>
