@@ -1,0 +1,12 @@
+<h1>one title</h1>
+
+<p>one works!</p>
+<button (click)="fetch()">call api</button>
+
+<div *ngFor="let item of data; trackBy: trackById">
+  <p>{{ item.id }}</p>
+  <p>{{ item.title }}</p>
+  <p>{{ item.body }}</p>
+</div>
+    
+<app-aaa></app-aaa>
