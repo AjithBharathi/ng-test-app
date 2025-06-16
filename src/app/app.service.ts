@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { of, throwError } from 'rxjs';
+import { BehaviorSubject, of, Subject, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +7,23 @@ import { of, throwError } from 'rxjs';
 export class AppService {
   myResovler!: boolean;
 
-  constructor() { }
+
+  constructor() {
+    // localStorage.setItem('isLoggedIn', 'false')
+  }
+
+  userLoggedIn() {
+    console.log(localStorage.getItem('isLoggedIn'))
+    return localStorage.getItem('isLoggedIn') == 'true' ? true : false;
+  }
+
+  login() {
+    localStorage.setItem('isLoggedIn', 'true')
+  }
+
+  logout() {
+    localStorage.setItem('isLoggedIn', 'false')
+  }
 
   setMyResovler(val: boolean) {
     this.myResovler = val;
@@ -20,7 +36,7 @@ export class AppService {
         age: '29',
         job: 'IT'
       });
-    } 
+    }
     else {
       return throwError('MY_ERROR_MESSAGE!!');
 
@@ -30,5 +46,9 @@ export class AppService {
       }));
     }
 
+  }
+
+  checkMyGuards(id: any, type?: string) {
+    return id == 1 ? true : false;
   }
 }

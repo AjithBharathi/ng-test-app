@@ -1,0 +1,34 @@
+<div class="main_container">
+    <h1>CHILD ROUTE GAURDS</h1>
+
+    <div>
+        <h1>MY CHILD ROUTES:</h1>
+        <div class="route_continer">
+            <p>{{'protected child routes:' | titlecase}}</p>
+            <button routerLink="my_guard_two_a/11">Protected Route Two - A</button>
+            <button routerLink="my_guard_two_b/1">Protected Route Two - B</button>
+            
+        </div>
+
+        <!-- <div class="route_continer">
+            <p>{{'route using routerLink with Square brackets:' | titlecase}}</p>
+            <button [routerLink]="['parmss/2/two0']">Two Link</button>
+            <button [routerLink]="['./parmss', 3, 'three']" [queryParams]="{id: 3, name: 'three'}">Three Link</button>
+            <button [routerLink]="['parmss', 4, 'four']">Four Link</button>
+        </div>
+
+        <div class="route_continer">
+            <p>{{'route using navigate method:' | titlecase}}</p>
+            <button (click)="navigateTwo()">Two Method</button>
+            <button (click)="navigateThree()">Three Method</button>
+            <button (click)="navigateFour()">Four Method</button>
+        </div> -->
+    </div>
+
+   
+    
+
+</div>
+
+
+<router-outlet></router-outlet>

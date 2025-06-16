@@ -1,4 +1,5 @@
-import { Component,ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
+import { AppService } from './app.service';
 
 @Component({
   selector: 'app-root',
@@ -8,4 +9,13 @@ import { Component,ViewEncapsulation } from '@angular/core';
 })
 export class AppComponent {
   title = 'my-test-app';
+  constructor(private appService: AppService) { }
+
+  login() {
+    this.appService.login()
+  }
+
+  logout() {
+    this.appService.logout();
+  }
 }
