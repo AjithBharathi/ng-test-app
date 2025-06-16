@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AppService } from '../../app.service';
 
 @Component({
   selector: 'app-my-params-home',
@@ -8,10 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class MyParamsHomeComponent {
 
-  constructor(private router: Router, private route: ActivatedRoute) {
-
-
-  }
+  constructor(private router: Router, private route: ActivatedRoute, private appService: AppService) { }
 
   navigateTwo() {
     // 1. Passing route parameters (e.g., /two/123)
@@ -83,6 +81,28 @@ export class MyParamsHomeComponent {
     // or 
     // const currentUrl = this.router.url;
     // this.router.navigateByUrl(`${currentUrl}/parmss/123/abc?name=ajith&age=29`);
+  }
+
+  navStateData() {
+    this.router.navigate(['staticdata'], {
+      relativeTo: this.route,
+      state: { name: 'Ajith', role: 'Admin', type: 'state data' }
+    });
+  }
+
+  fragmentNav() {
+    this.router.navigate(['routefragment'], {
+      relativeTo: this.route,
+      fragment: 'about'
+    });
+  }
+
+  resolverNav(val:boolean) {
+    this.appService.setMyResovler(val);
+     this.router.navigate(['myresolver'], {
+      relativeTo: this.route,
+      fragment: 'about'
+    });
   }
 
 }

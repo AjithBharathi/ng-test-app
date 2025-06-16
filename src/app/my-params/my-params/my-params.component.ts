@@ -96,6 +96,8 @@ export class MyParamsComponent {
       age: snapshotQueryParamMap.get('age')
     });
 
+
+
   }
 
   ngOnInit() {

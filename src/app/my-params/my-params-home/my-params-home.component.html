@@ -1,24 +1,60 @@
-<h1>MY PARAMS:</h1>
+<div class="main_container">
+    <h1>ACTIVATED ROUTE</h1>
 
-<div class="route_continer">
-    <p>{{'route using routerLink without Square brackets:' | titlecase}}</p>
-    <button routerLink="parmss/2/two">Two Link</button>
-    <button routerLink="parmss/3/three" [queryParams]="{id: 3, name: 'Qthree'}">Three Link</button>
-    <button routerLink="./parmss/4/four">Four Link</button>
-</div>
+    <div>
+        <h1>MY PARAMS:</h1>
+        <div class="route_continer">
+            <p>{{'route using routerLink without Square brackets:' | titlecase}}</p>
+            <button routerLink="parmss/2/two">Two Link</button>
+            <button routerLink="parmss/3/three" [queryParams]="{id: 3, name: 'Qthree'}">Three Link</button>
+            <button routerLink="./parmss/4/four">Four Link</button>
+        </div>
 
-<div class="route_continer">
-    <p>{{'route using routerLink with Square brackets:' | titlecase}}</p>
-    <button [routerLink]="['parmss/2/two0']">Two Link</button>
-    <button [routerLink]="['./parmss', 3, 'three']" [queryParams]="{id: 3, name: 'three'}">Three Link</button>
-    <button [routerLink]="['parmss', 4, 'four']">Four Link</button>
-</div>
+        <div class="route_continer">
+            <p>{{'route using routerLink with Square brackets:' | titlecase}}</p>
+            <button [routerLink]="['parmss/2/two0']">Two Link</button>
+            <button [routerLink]="['./parmss', 3, 'three']" [queryParams]="{id: 3, name: 'three'}">Three Link</button>
+            <button [routerLink]="['parmss', 4, 'four']">Four Link</button>
+        </div>
 
-<div class="route_continer">
-    <p>{{'route using navigate method:' | titlecase}}</p>
-    <button (click)="navigateTwo()">Two Method</button>
-    <button (click)="navigateThree()">Three Method</button>
-    <button (click)="navigateFour()">Four Method</button>
+        <div class="route_continer">
+            <p>{{'route using navigate method:' | titlecase}}</p>
+            <button (click)="navigateTwo()">Two Method</button>
+            <button (click)="navigateThree()">Three Method</button>
+            <button (click)="navigateFour()">Four Method</button>
+        </div>
+    </div>
+
+    <div>
+        <h1>STATIC DATA:</h1>
+        <div class="route_continer">
+            <p>{{'Static data and state data:' | titlecase}}</p>
+            <button routerLink="./staticdata">Static Data</button>
+            <button (click)="navStateData()">State Data</button>
+        </div>
+    </div>
+    
+    <div>
+        <h1>FRAGMENT:</h1>
+        <div class="route_continer">
+            <p>{{'fragment:' | titlecase}}</p>
+            <button routerLink="./routefragment" fragment="home">Home Fragment</button>
+            <button routerLink="./routefragment" (click)="fragmentNav()">About Fragment</button>
+            <button routerLink="./routefragment" [fragment]="'contact'">Contact Fragment</button>
+        </div>
+    </div>
+
+        <div>
+        <h1>RESOLVER:</h1>
+        <div class="route_continer">
+            <p>{{'Resolver:' | titlecase}}</p>
+            <button (click)="resolverNav(true)">Resolver</button>
+            <button (click)="resolverNav(false)">Resolver Error</button>
+          
+        </div>
+    </div>
+    
+
 </div>
 
 

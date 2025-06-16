@@ -4,12 +4,18 @@ import { CommonModule } from '@angular/common';
 import { MyParamsRoutingModule } from './my-params-routing.module';
 import { MyParamsComponent } from './my-params/my-params.component';
 import { MyParamsHomeComponent } from './my-params-home/my-params-home.component';
+import { StaticDataComponent } from './static-data/static-data.component';
+import { RouteFragmentComponent } from './route-fragment/route-fragment.component';
+import { MyResolverComponent } from './my-resolver/my-resolver.component';
 
 
 @NgModule({
   declarations: [
     MyParamsComponent,
-    MyParamsHomeComponent
+    MyParamsHomeComponent,
+    StaticDataComponent,
+    RouteFragmentComponent,
+    MyResolverComponent
   ],
   imports: [
     CommonModule,
