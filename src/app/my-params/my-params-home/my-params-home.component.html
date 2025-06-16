@@ -1,0 +1,25 @@
+<h1>MY PARAMS:</h1>
+
+<div class="route_continer">
+    <p>{{'route using routerLink without Square brackets:' | titlecase}}</p>
+    <button routerLink="parmss/2/two">Two Link</button>
+    <button routerLink="parmss/3/three" [queryParams]="{id: 3, name: 'Qthree'}">Three Link</button>
+    <button routerLink="./parmss/4/four">Four Link</button>
+</div>
+
+<div class="route_continer">
+    <p>{{'route using routerLink with Square brackets:' | titlecase}}</p>
+    <button [routerLink]="['parmss/2/two0']">Two Link</button>
+    <button [routerLink]="['./parmss', 3, 'three']" [queryParams]="{id: 3, name: 'three'}">Three Link</button>
+    <button [routerLink]="['parmss', 4, 'four']">Four Link</button>
+</div>
+
+<div class="route_continer">
+    <p>{{'route using navigate method:' | titlecase}}</p>
+    <button (click)="navigateTwo()">Two Method</button>
+    <button (click)="navigateThree()">Three Method</button>
+    <button (click)="navigateFour()">Four Method</button>
+</div>
+
+
+<router-outlet></router-outlet>

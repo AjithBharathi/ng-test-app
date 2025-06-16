@@ -16,7 +16,8 @@ const routes: Routes = [
     {path: 'bbb', component: BbbComponent},
     {path: 'ccc', component: CccComponent}
   ], canActivateChild: [AuthGuard]},
-  {path: '', redirectTo: '/one/1', pathMatch: 'full'},
+  {path: 'myparams', loadChildren: () => import('./my-params/my-params.module').then(m => m.MyParamsModule)},
+  // {path: '', redirectTo: '/one/1', pathMatch: 'full'},
 ];
 
 @NgModule({

@@ -1,0 +1,189 @@
+relative path:
+import { MyComponent } from '../components/my.component';
+
+
+---------------------------------
+
+absolute path:
+An absolute path starts from the root of your project or module, regardless of the file's location.
+
+import { HelperService } from 'app/shared/services/helper.service';
+
+Or if you define a custom path:
+
+import { HelperService } from '@shared/services/helper.service';
+// tsconfig.json
+{
+  "compilerOptions": {
+    "baseUrl": "src",
+    "paths": {
+      "@shared/*": ["app/shared/*"],
+      "@core/*": ["app/core/*"]
+    }
+  }
+}
+
+---------------------------------
+
+relative route path:
+based on the current route
+Starts relative to the current route (what’s currently in the URL).
+
+<a [routerLink]="['edit']">Edit</a> or <a [routerLink]="['./edit']">Edit</a>
+➡ If you're currently at /users/5, this will navigate to: /users/5/edit
+
+🔹 Code Navigation with ActivatedRoute: this.router.navigate(['edit'], { relativeTo: this.route });
+✅ You must use relativeTo when navigating programmatically.
+
+
+Absolute route path:
+from the application root ('')
+✅ Always starts from the root path, regardless of current URL.
+
+<a [routerLink]="['/dashboard']">Go to Dashboard</a>
+
+this.router.navigate(['/dashboard']);
+
+---------------------------------
+TYPES OF ROUTER SNAPSHOT:
+
+1. ActivatedRoute.snapshot - used in component or service - no observable, one time update
+2. ActivatedRouteSnapshot - route guards and resolvers - Read params/data in guards
+3. RouterStateSnapshot - used in gaurd - Access full navigation URL path
+
+---------------------------------
+ROUTE DATA ACCESS:
+1. params - data can be passed via url params (paramMap, params)
+2. queryParams - data can be passed via url query params (paramMap, params)
+3. fragments - Navigate to anchor within page
+3. data - passing static data
+4. resolvers - prefetching data before navigating to a route
+5. gaurds - use data to decide if a route can activate
+6. events - Events are emitted during the navigation lifecycle
+---------------------------------
+ROUTE METHODS:
+1. .navigate() - used for both absolute and relative path. path and params pass in array and queryparams pass in object. use "relativeTo: this.route" for child relative routes
+2. navigateByUrl() - only works for absolute path and path,params,queryparams should be passed in string format
+
+
+------------------------------------------------------------------
+ROUTING FEATURES:
+
+✅ 1. BASIC ROUTING:
+
+| Feature                  | Description                   | Example                                      |
+| ------------------------ | ----------------------------- | -------------------------------------------- |
+| **Routes Configuration** | Define routes with components | `{ path: 'home', component: HomeComponent }` |
+| **RouterModule**         | Import routing in app/module  | `RouterModule.forRoot(routes)`               |
+| **RouterLink**           | Template-based navigation     | `<a [routerLink]="['/about']">About</a>`     |
+| **Router.navigate()**    | Code-based navigation         | `this.router.navigate(['/about'])`           |
+
+
+✅ 2. ROUTE PARAMETERS
+
+| Feature           | Description                | Example                                          |
+| ----------------- | -------------------------- | ------------------------------------------------ |
+| **Route Params**  | Dynamic segments in path   | `{ path: 'user/:id', component: UserComponent }` |
+| **Access Params** | Read from `ActivatedRoute` | `this.route.snapshot.paramMap.get('id')`         |
+
+
+✅ 3. QUERY PARAMETERS & FRAGMENTS
+
+| Feature          | Description                                | Example            |
+| ---------------- | ------------------------------------------ | ------------------ |
+| **Query Params** | Extra data in URL (e.g., pagination)       | `/products?page=2` |
+| **Access Query** | `route.snapshot.queryParamMap.get('page')` |                    |
+| **Fragment**     | Navigate to anchor within page             | `/about#team`      |
+
+
+✅ 4. NESTED / CHILD ROUTES
+
+| Feature             | Description                           | Example                              |
+| ------------------- | ------------------------------------- | ------------------------------------ |
+| **Child Routes**    | Load routes inside routes (like tabs) | `{ path: 'admin', children: [...] }` |
+| **<router-outlet>** | Placeholder for child components      |                                      |
+
+
+✅ 5. LAZY LOADING
+
+| Feature                          | Description          | Example                                                                       |
+| -------------------------------- | -------------------- | ----------------------------------------------------------------------------- |
+| **Load module only when needed** | Improves performance | `loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)` |
+
+
+✅ 6. ROUTE GUARDS
+
+| Guard Type         | Purpose                                      |
+| ------------------ | -------------------------------------------- |
+| `CanActivate`      | Control if a route can be activated          |
+| `CanActivateChild` | Control access to child routes               |
+| `CanDeactivate`    | Prevent leaving a route (e.g., unsaved form) |
+| `Resolve`          | Preload data before route activates          |
+| `CanLoad`          | Control lazy-loaded module loading           |
+
+
+✅ 7. RESOLVERS
+
+| Feature           | Description                       | Example                                                                            |
+| ----------------- | --------------------------------- | ---------------------------------------------------------------------------------- |
+| **Data Resolver** | Fetch data before route activates | `{ path: 'profile', component: ProfileComponent, resolve: { user: UserResolver }}` |
+
+
+✅ 8. REDIRECTS & WILDCARDS
+
+| Feature            | Description                    | Example                                               |
+| ------------------ | ------------------------------ | ----------------------------------------------------- |
+| **Redirects**      | Auto-navigate to another route | `{ path: '', redirectTo: 'home', pathMatch: 'full' }` |
+| **Wildcard Route** | Handle 404 pages               | `{ path: '**', component: NotFoundComponent }`        |
+
+
+✅ 9. ROUTE ANIMATION SUPPORT
+
+| Feature                                                                             | Description                        |
+| ----------------------------------------------------------------------------------- | ---------------------------------- |
+| **Router Animations**                                                               | Animate transitions between routes |
+| Use `:enter`, `:leave`, `router-outlet`, and `routerLinkActive` for visual feedback |                                    |
+
+
+✅ 10. CUSTOM ROUTE REUSE STRATEGIES
+
+| Feature             | Description                     |                                               |
+| ------------------- | ------------------------------- | --------------------------------------------- |
+| **Custom Strategy** | Reuse or cache route components | Advanced, improves performance for tabs, etc. |
+
+
+✅ 11. NAVIGATION EVENTS
+
+| Event              | Description                    |
+| ------------------ | ------------------------------ |
+| `NavigationStart`  | When navigation begins         |
+| `NavigationEnd`    | When it completes successfully |
+| `NavigationError`  | On error                       |
+| `RoutesRecognized` | When route is matched          |
+
+➡ Use Router.events.subscribe(...) to listen to these.
+
+
+✅ 12. LOCATION STRATEGIES
+
+| Type                     | Description                   | URL Example |
+| ------------------------ | ----------------------------- | ----------- |
+| **PathLocationStrategy** | Default HTML5 routing         | `/home`     |
+| **HashLocationStrategy** | Uses `#` for fallback routing | `/#/home`   |
+
+------------------------------------------------------------------
+
+🎯 SUMMARY TABLE
+
+| Category    | Features                        |
+| ----------- | ------------------------------- |
+| Basic       | Routes, RouterLink, navigate()  |
+| Parameters  | Route, Query, Fragment          |
+| Advanced    | Guards, Resolvers, Lazy Loading |
+| UX Features | Route animations, Events        |
+| Fallbacks   | Wildcards, Redirects            |
+| Structure   | Nested routes, Child routes     |
+| Others      | Route reuse, Location strategy  |
+
+
+------------------------------------------------------------------
