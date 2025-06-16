@@ -1,0 +1,21 @@
+<p>todos works!</p>
+
+<div class="todo-container">
+    <div *ngFor="let todo of todos; let i = index; trackBy: trackByTodoId" class="todo-item">
+        <div class="todo-title">
+            <p>{{ i + 1 }}. {{ todo.title }}</p>
+        </div>
+        <div class="todo-actions">
+            <button (click)="editTodo(i, todo.title)">Edit</button>
+            <button (click)="removeTodo(todo.id)">Remove</button>
+            <button (click)="toggleTodoCompletion(todo.id)" [disabled]="todo.completed">Complete</button>
+        </div>
+    </div>
+</div>
+<div class="todo-edit" *ngIf="isEditing">
+    <div class="todo-form">
+        <input type="text" [(ngModel)]="editTodoTxt" />
+        <button (click)="saveEdit()">Save</button>
+        <button (click)="cancelEdit()">Cancel</button>
+    </div>
+</div>
