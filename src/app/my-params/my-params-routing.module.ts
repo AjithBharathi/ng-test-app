@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MyParamsComponent } from './my-params/my-params.component';
 import { MyParamsHomeComponent } from './my-params-home/my-params-home.component';
-import { StaticDataComponent } from './static-data/static-data.component';
+import { StaticDataComponent } from './static-state-data/static-data.component';
 import { RouteFragmentComponent } from './route-fragment/route-fragment.component';
 import { MyResolverComponent } from './my-resolver/my-resolver.component';
 import { MyResolver } from './my-resolver/my-resolver.service';
