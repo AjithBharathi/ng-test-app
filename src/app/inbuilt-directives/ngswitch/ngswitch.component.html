@@ -1,1 +1,22 @@
-<p>ngswitch works!</p>
+<div class="main-container">
+    <p>ngswitch works!</p>
+
+    <div class="inbuilt-container">
+        <select [(ngModel)]="role">
+            <option value="admin">Admin</option>
+            <option value="user">User</option>
+            <option value="guest">Guest</option>
+            <option value="unknown">Unknown</option>
+        </select>
+
+        <div [ngSwitch]="role">
+            <p *ngSwitchCase="'admin'">🔐 Admin Dashboard</p>
+            <p *ngSwitchCase="'user'">👤 User Home</p>
+            <p *ngSwitchCase="'guest'">🌐 Guest Info</p>
+            <p *ngSwitchDefault>❗ Role not recognized</p>
+        </div>
+    </div>
+
+
+
+</div>

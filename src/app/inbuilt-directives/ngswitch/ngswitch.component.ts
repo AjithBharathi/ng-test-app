@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./ngswitch.component.scss']
 })
 export class NgswitchComponent {
-
+role = 'user'; // Try changing this to 'admin', 'guest', or something else
 }

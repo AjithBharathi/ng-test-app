@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./ngfor.component.scss']
 })
 export class NgforComponent {
-
+  names: string[] = ['Alice', 'Bob', 'Charlie', 'Diana', 'Ethan']
 }

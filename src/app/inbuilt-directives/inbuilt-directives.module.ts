@@ -6,6 +6,7 @@ import { NgforComponent } from './ngfor/ngfor.component';
 import { NgifComponent } from './ngif/ngif.component';
 import { NgswitchComponent } from './ngswitch/ngswitch.component';
 import { InbuiltHomeComponent } from './inbuilt-home/inbuilt-home.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { InbuiltHomeComponent } from './inbuilt-home/inbuilt-home.component';
   ],
   imports: [
     CommonModule,
-    InbuiltDirectivesRoutingModule
+    InbuiltDirectivesRoutingModule,
+    FormsModule
   ]
 })
 export class InbuiltDirectivesModule { }
