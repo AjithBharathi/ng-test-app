@@ -1,0 +1,26 @@
+<!-- Add Spinner UI -->
+<div *ngIf="loading$ | async" class="spinner-overlay">
+  <div class="spinner">Loading...</div>
+</div>
+
+
+<div>
+  <h2>Users</h2>
+  <p *ngIf="errorMsg">Error: {{ errorMsg }}</p>
+  <button (click)="addUser()">Add User</button>
+  <button (click)="loadWithHeaders()">Load with Headers</button>
+  <button (click)="loadFullResponse()">Get Full Response</button>
+  <button (click)="loadTextResponse()">Get Text Response</button>
+  <button (click)="loadWithRetry()">Load with Retry</button>
+  <button (click)="loadCombinedData()">Load Combined Data</button>
+  <input type="file" (change)="uploadFile($event)" />
+  <button (click)="downloadFile()">Download File</button>
+  <ul>
+    <li *ngFor="let user of users">
+      {{ user.name }} - {{ user.email }}
+      <button (click)="updateUser(user)">Update</button>
+      <button (click)="patchUser(user)">Patch</button>
+      <button (click)="deleteUser(user.id!)">Delete</button>
+    </li>
+  </ul>
+</div>
