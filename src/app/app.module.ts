@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { Route, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: 'inbuiltDirective' , 
+  { path: '' , 
     loadChildren: () => import('./inbuilt-directives/inbuilt-directives.module').then(m => m.InbuiltDirectivesModule)},
   { path: 'inbuiltDirective' , 
     loadChildren: () => import('./custom-directives/custom-directives.module').then(m => m.CustomDirectivesModule)}
