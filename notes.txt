@@ -1,0 +1,9 @@
+CUSTOM DIRECTIVE:
+
+| Directive          | Purpose                            |
+| ------------------ | ---------------------------------- |
+| `appAutoFocus`     | Focuses input automatically        |
+| `appClickOutside`  | Detects clicks outside the element |
+| `appHasRole`       | Role-based visibility control      |
+| `appDebounceClick` | Prevents double-clicks             |
+| `appAddClass`      | Adds a CSS class programmatically  |

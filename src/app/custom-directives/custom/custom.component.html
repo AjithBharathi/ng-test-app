@@ -1,0 +1,65 @@
+<div class="main-container">
+
+    <p>custom works!</p>
+
+    <div class="inbuilt-container">
+        <h3>normal way:</h3>
+        <p appCustomDirective>Hover over this text to see highlight</p>
+        <p>No directive here — no highlight.</p>
+
+    </div>
+
+    <div class="inbuilt-container">
+        <h3>Highlight Directive with Custom Colors using Input</h3>
+
+        <p [appHighlight]="'lightgreen'">This will be green</p>
+        <p [appHighlight]="'skyblue'">This will be blue</p>
+        <p [appHighlight]="'orange'">This will be orange</p>
+        <p appHighlight>This will use default yellow</p>
+    </div>
+
+    <h2>Additional directives:</h2>
+    
+    <div class="inbuilt-container">
+        <h3>✅ 1. AutoFocus Directive (Automatically focuses an input when the view loads.)</h3>
+        <input type="text" appAutoFocus />
+    </div>
+
+    <div class="inbuilt-container">
+        <h3>✅ 2. Click Outside Directive (Detect clicks outside an element (e.g., for dropdowns or modals).</h3>
+        <div (appClickOutside)="closeDropdown()">
+            <!-- your dropdown -->
+        </div>
+
+    </div>
+
+    <div class="inbuilt-container">
+        <h3>✅ 3. Role-Based Access Directive (Conditionally show elements based on user role.)</h3>
+        <button appHasRole="admin">Delete</button>
+    </div>
+
+
+    <div class="inbuilt-container">
+        <h3>✅ 4. Debounce Click Directive (Throttle click events to prevent double submission.)</h3>
+        <button [debounceTime]="1000" (appDebounceClick)="submit()">Submit</button>
+
+    </div>
+
+
+    <div class="inbuilt-container">
+        <h3>✅ 5. Add CSS Class Dynamically (Like ngClass, but as a directive.)</h3>
+        <div [appAddClass]="'highlight-box'">Styled div</div>
+
+    </div>
+
+
+    <div class="inbuilt-container">
+        <h3></h3>
+
+    </div>
+
+
+
+
+
+</div>
