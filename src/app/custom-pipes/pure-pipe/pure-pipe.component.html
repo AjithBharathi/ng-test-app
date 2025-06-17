@@ -1,0 +1,9 @@
+<div class="inbuilt-container">
+    <h2>pure-pipe !</h2>
+    <div *ngIf="todos.length > 0">
+        <div *ngFor="let todo of todos;let i=index" class="inbuilt-container">
+            <p>{{todo.title}}</p>
+            <span>Status: {{todo.completed | purePipe}}</span>
+        </div>
+    </div>
+</div>

@@ -13,3 +13,17 @@
 | `async`      | Observable → value        |
 | `i18nPlural` | Text based on count       |
 | `i18nSelect` | Text based on selection   |
+
+
+🆚 Pure vs Impure — Quick Comparison
+
+| Feature                 | Pure Pipe                          | Impure Pipe                           |
+| ----------------------- | ---------------------------------- | ------------------------------------- |
+| Execution               | When input reference/value changes | On every change detection cycle       |
+| Performance             | High                               | Lower (more CPU usage)                |
+| Use cases               | Simple transforms (date, string)   | Array filtering, search, dynamic data |
+| Handles mutated inputs? | ❌ No                               | ✅ Yes                                |
+
+✅ Summary
+Use pure pipes for simple, stateless transforms.
+Use impure pipes for dynamic data that might mutate or require frequent updates.

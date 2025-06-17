@@ -1,0 +1,28 @@
+<div class="inbuilt-container">
+    <h2>impure-pipe !</h2>
+    <div *ngIf="todos.length > 0">
+        <div *ngFor="let todo of todos  | impurePipe;let i=index" class="inbuilt-container">
+            <p>{{todo.title}}</p>
+            <span>Status: {{todo.completed}}</span>
+        </div>
+    </div>
+</div>
+
+<div class="inbuilt-container">
+    <h2>Impure Pipe Example - JSON</h2>
+    <p>{{ user | impureJson }}</p>
+</div>
+
+
+<div class="inbuilt-container">
+    <h2>Impure Search Pipe Example</h2>
+
+    <input type="text" [(ngModel)]="searchText" placeholder="Search by name..." />
+    <Button (click)="addNewUser()">add new item</Button>
+
+    <ul>
+        <li *ngFor="let user of users | impureSearch:searchText:'name'">
+            {{ user.name }} ({{ user.role }})
+        </li>
+    </ul>
+</div>
