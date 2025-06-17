@@ -1,0 +1,38 @@
+<div class="main-container">
+    <p>ngclass works!</p>
+    <div class="inbuilt-container">
+        <h3>1. String Syntax</h3>
+        <div [ngClass]="'active'">Hello</div>
+    </div>
+
+    <div class="inbuilt-container">
+        <h3>2. Array Syntax</h3>
+        <div [ngClass]="['active', 'bold']">Hello</div>
+    </div>
+
+
+
+    <div class="inbuilt-container">
+        <h3>3. Object Syntax</h3>
+        <div [ngClass]="{ 'active': isActive, 'error': isError }">Hello</div>
+
+    </div>
+
+
+
+    <div class="inbuilt-container">
+        <h3>4. With Component Class Property</h3>
+        <div [ngClass]="currentClasses">Hello</div>
+
+
+    </div>
+
+    <div class="inbuilt-container">
+        <h3>5. Using class.className Syntax (Shorthand)</h3>
+       <div [class.active]="isActive" [class.error]="hasError">Hello</div>
+
+    </div>
+
+
+
+</div>

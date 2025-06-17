@@ -7,6 +7,8 @@ import { NgifComponent } from './ngif/ngif.component';
 import { NgswitchComponent } from './ngswitch/ngswitch.component';
 import { InbuiltHomeComponent } from './inbuilt-home/inbuilt-home.component';
 import { FormsModule } from '@angular/forms';
+import { NgclassComponent } from './ngclass/ngclass.component';
+import { NgstyleComponent } from './ngstyle/ngstyle.component';
 
 
 @NgModule({
@@ -14,7 +16,9 @@ import { FormsModule } from '@angular/forms';
     NgforComponent,
     NgifComponent,
     NgswitchComponent,
-    InbuiltHomeComponent
+    InbuiltHomeComponent,
+    NgclassComponent,
+    NgstyleComponent
   ],
   imports: [
     CommonModule,

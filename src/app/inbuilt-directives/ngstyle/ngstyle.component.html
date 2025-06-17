@@ -1,0 +1,41 @@
+<div class="main-container">
+    <p>ngstyle works!</p>
+    <div class="inbuilt-container">
+        <h3>1. Object Syntax</h3>
+        <p [ngStyle]="myStyles">Styled Text</p>
+    </div>
+
+    <div class="inbuilt-container">
+        <h3>2. Inline in Template</h3>
+        <p [ngStyle]="{ 'color': isError ? 'red' : 'green' }">Status</p>
+    </div>
+
+
+
+    <div class="inbuilt-container">
+        <h3>3. With Component Properties</h3>
+        <p [ngStyle]="{ 'font-size': fontSize, 'color': fontColor }">Dynamic Style</p>
+
+    </div>
+
+
+
+    <div class="inbuilt-container">
+        <h3>4. Using style.property Binding</h3>
+        <p [style.color]="isError ? 'red' : 'green'" [style.fontSize.px]="18">Shorthand</p>
+
+
+
+    </div>
+
+    <div class="inbuilt-container">
+        <h3>🔁 ngClass + ngStyle Together</h3>
+        <div [ngClass]="{ 'warning': isWarning }" [ngStyle]="{ 'padding': '10px' }">
+            Warning Box
+        </div>
+
+    </div>
+
+
+
+</div>
