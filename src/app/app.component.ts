@@ -6,5 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ng-test-app';
+   showChild: boolean = false;
+  childInputValue: string = 'Initial Value';
+  counter: number = 0;
+
+  toggleChild() {
+    this.showChild = !this.showChild;
+  }
+
+  updateInput() {
+    this.counter++;
+    this.childInputValue = `Updated Value ${this.counter}`;
+  }
 }

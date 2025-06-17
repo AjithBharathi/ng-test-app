@@ -1,0 +1,24 @@
+<div class="parent">
+    <h2>Parent Component</h2>
+    <button (click)="toggleChild()">
+        {{ showChild ? 'Destroy' : 'Create' }} Child
+    </button>
+    <button (click)="updateInput()">Update Input</button>
+    <app-child-a-one *ngIf="showChild" [inputValue]="childInputValue"></app-child-a-one>
+</div>
+
+
+
+<br><br>
+<hr><hr>
+
+ <h1>Content Projection Demo</h1>
+    <button (click)="toggleContainer()">
+      {{ showContainer ? 'Destroy' : 'Create' }} Container
+    </button>
+    <button (click)="updateContent()">Update Projected Content</button>
+
+    <app-content-container *ngIf="showContainer">
+      <h3 #projectedHeader>Projected Header {{ contentVersion }}</h3>
+      <p>This content will be projected into the container component</p>
+    </app-content-container>
