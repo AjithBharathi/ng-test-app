@@ -1,0 +1,88 @@
+<div class="main-container">
+    <p>Angular Bindings!</p>
+
+    <h4>Core 4</h4>
+    <div class="inbuilt-container">
+        <h3>✅ 1. Interpolation</h3>
+        <div class="inbuilt-pipes">
+            <p>Hello, {{ username }}!</p>
+        </div>
+    </div>
+
+    <div class="inbuilt-container">
+        <h3>✅ 2. Property Binding</h3>
+        <div class="inbuilt-pipes">
+            <img [src]="profileImageUrl" alt="img" />
+            <input [disabled]="isDisabled" />
+        </div>
+    </div>
+
+    <div class="inbuilt-container">
+        <h3>✅ 4. Two-way Binding</h3>
+        <div class="inbuilt-pipes">
+            <input [(ngModel)]="username" />
+            <p>Welcome, {{ username }}!</p>
+        </div>
+    </div>
+
+    <h4>Additional / Special Bindings</h4>
+
+    <div class="inbuilt-container">
+        <h3>🔶 5. Attribute Binding ([attr.name])</h3>
+        <div class="inbuilt-pipes">
+            <td [attr.colspan]="2"></td>
+            <button [attr.aria-label]="'Add to cart'"></button>
+        </div>
+    </div>
+
+    <div class="inbuilt-container">
+        <h3>🔶 6. Class Binding ([class.className] or class.className)</h3>
+        <div class="inbuilt-pipes">
+            <div [class.active]="isActive"></div>
+            <!-- OR -->
+            <div class.active="isActive"></div>
+        </div>
+    </div>
+
+    <div class="inbuilt-container">
+        <h3>🔶 7. Style Binding ([style.property])</h3>
+        <div class="inbuilt-pipes">
+            <p [style.color]="isError ? 'red' : 'green'">Message</p>
+        </div>
+    </div>
+
+
+    <div class="inbuilt-container">
+        <h3>🔶 8. Input() Binding</h3>
+        <div class="inbuilt-pipes">
+            <app-user [userData]="user"></app-user>
+        </div>
+    </div>
+
+
+    <div class="inbuilt-container">
+        <h3>🔶 9. Output() Binding</h3>
+        <div class="inbuilt-pipes">
+            <app-child (notify)="onNotify($event)"></app-child>
+        </div>
+    </div>
+
+
+    <div class="inbuilt-container">
+        <h3>🔶 10. Template Reference Variables (#)</h3>
+        <div class="inbuilt-pipes">
+            <input #myInput type="text" />
+            <button (click)="logValue(myInput.value)">Log</button>
+        </div>
+    </div>
+
+
+    <div class="inbuilt-container">
+        <h3>🔶 11. Safe Navigation Operator (Elvis Operator)</h3>
+        <div class="inbuilt-pipes">
+            <p>{{ user?.name }}</p>
+        </div>
+    </div>
+
+
+</div>

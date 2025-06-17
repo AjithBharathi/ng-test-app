@@ -1,0 +1,10 @@
+├── Interpolation:        {{ value }}
+├── Property Binding:     [property]="value"
+├── Event Binding:        (event)="handler"
+├── Two-way Binding:      [(ngModel)]="value"
+├── Attribute Binding:    [attr.attribute]="value"
+├── Class Binding:        [class.className]="condition"
+├── Style Binding:        [style.property]="value"
+├── @Input / @Output:     Child ↔ Parent
+├── Template Reference:   #varName
+└── Safe Navigation:      value?.property
