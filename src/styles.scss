@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+
+p {
+    margin: 0px;
+}
+
+.inbuilt-container {
+    border: 1px solid;
+    border-radius: 6px;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+}
+
+.inbuilt-container>h3 {
+    margin: 0px;
+}
+
+.inbuilt-pipes {
+    background: aliceblue;
+    padding: 20px;
+    border-radius: 9px;
+
+    p:not(:first-child) {
+        margin-top: 10px;
+    }
+}
+
+h3 + p {
+    margin: 15px 0px;
+}

@@ -1,0 +1,152 @@
+<div class="main-container">
+    <p>inbuilt-pipes works!</p>
+
+
+    <div class="inbuilt-container">
+        <h3>✅ 1. uppercase</h3>
+        <p>Converts a string to UPPERCASE.</p>
+        <div class="inbuilt-pipes">
+            <p>{{ 'angular' | uppercase }}</p>
+            <!-- Output: ANGULAR -->
+        </div>
+    </div>
+
+
+    <div class="inbuilt-container">
+        <h3>✅ 2. lowercase</h3>
+        <p>Converts a string to lowercase.</p>
+        <div class="inbuilt-pipes">
+            <p>{{ 'ANGULAR' | lowercase }}</p>
+            <!-- Output: angular -->
+        </div>
+    </div>
+
+
+    <div class="inbuilt-container">
+        <h3>✅ 3. titlecase</h3>
+        <p>Capitalizes the first letter of each word.</p>
+        <div class="inbuilt-pipes">
+            <p>{{ 'angular is awesome' | titlecase }}</p>
+            <!-- Output: Angular Is Awesome -->
+        </div>
+    </div>
+
+
+    <div class="inbuilt-container">
+        <h3>✅ 4. slice</h3>
+        <p>Slices a string or array (like substring() or slice() in JS).</p>
+        <div class="inbuilt-pipes">
+            <p>{{ 'Angular' | slice:1:4 }}</p>
+            <!-- Output: ngu -->
+            <p>{{ [10, 20, 30, 40] | slice:1:3 }}</p>
+            <!-- Output: [20, 30] -->
+        </div>
+    </div>
+
+    <div class="inbuilt-container">
+        <h3>✅ 5. date</h3>
+        <p>Formats a Date object into a readable string.</p>
+        <div class="inbuilt-pipes">
+            <p>{{ today | date:'short' }}</p>
+            <!-- Output: 6/15/25, 10:00 PM -->
+            <p>{{ today | date:'fullDate' }}</p>
+            <!-- Output: Sunday, June 15, 2025 -->
+
+            <!-- Assume: today = new Date() -->
+        </div>
+    </div>
+
+
+    <div class="inbuilt-container">
+        <h3>✅ 6. currency</h3>
+        <p>Formats a number into currency (₹, $, etc.).</p>
+        <div class="inbuilt-pipes">
+            <p>{{ 1234.5 | currency:'INR':'symbol':'1.2-2' }}</p>
+            <!-- Output: ₹1,234.50 -->
+            <p>{{ 1234.5 | currency:'USD' }}</p>
+            <!-- Output: $1,234.50 -->
+        </div>
+    </div>
+
+
+    <div class="inbuilt-container">
+        <h3>✅ 7. percent</h3>
+        <p>Displays a number as a percentage.</p>
+        <div class="inbuilt-pipes">
+            <p>{{ 0.25 | percent }}</p>
+            <!-- Output: 25% -->
+            {{ 0.259 | percent:'1.1-2' }}
+            <!-- Output: 25.9% -->
+        </div>
+    </div>
+
+
+    <div class="inbuilt-container">
+        <h3>✅ 8. number</h3>
+        <p>Formats a number with a specific number of decimals.</p>
+        <div class="inbuilt-pipes">
+            <p>{{ 3.141592 | number:'1.1-2' }}</p>
+            <!-- Output: 3.14 -->
+            <span>Format: 'minInt.minFraction-maxFraction'</span>
+        </div>
+    </div>
+
+
+    <div class="inbuilt-container">
+        <h3>✅ 9. json</h3>
+        <p>Converts a JS object to a JSON string (great for debugging).</p>
+        <div class="inbuilt-pipes">
+            <p>{{ { name: 'Ajith', age: 30 } | json }}</p>
+            <!-- Output: {"name":"Ajith","age":30} -->
+        </div>
+    </div>
+
+
+    <div class="inbuilt-container">
+        <h3>✅ 10. keyvalue</h3>
+        <p>Transforms an object or Map into an array of key-value pairs for iteration.</p>
+        <div class="inbuilt-pipes">
+            <p *ngFor="let item of user | keyvalue">
+                {{ item.key }}: {{ item.value }}
+            </p>
+            <!-- Output:
+        name: Ajith
+        age: 30
+        -->
+        </div>
+    </div>
+
+    <div class="inbuilt-container">
+        <h3>✅ 11. async</h3>
+        <p>Automatically subscribes to Observables or Promises.</p>
+        <div class="inbuilt-pipes">
+            <p>{{ user$ | async }}</p>
+            <!-- Output: [object Object] or value depending on structure -->
+            <p *ngIf="user$ | async as user">
+                Hello {{ user.name }}
+            </p>
+        </div>
+    </div>
+
+
+    <div class="inbuilt-container">
+        <h3>✅ 12. i18nPlural</h3>
+        <p>Handles pluralization for different numbers.</p>
+        <div class="inbuilt-pipes">
+            <p>{{ messageCount | i18nPlural:messages }}</p>
+            <!-- Output: 2 messages. -->
+        </div>
+    </div>
+
+
+    <div class="inbuilt-container">
+        <h3>✅ 13. i18nSelect</h3>
+        <p>Displays a message based on a selection value (gender, role, etc.)</p>
+        <div class="inbuilt-pipes">
+            <p>{{ userGender | i18nSelect:genderMap }}</p>
+            <!-- Output: Ms. -->
+        </div>
+    </div>
+
+
+</div>

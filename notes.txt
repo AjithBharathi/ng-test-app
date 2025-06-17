@@ -1,0 +1,15 @@
+| Pipe         | Use                       |
+| ------------ | ------------------------- |
+| `uppercase`  | Text → UPPERCASE          |
+| `lowercase`  | Text → lowercase          |
+| `titlecase`  | Title Formatting          |
+| `slice`      | Substring / Subarray      |
+| `date`       | Format Dates              |
+| `currency`   | Format Money              |
+| `percent`    | Format Percent            |
+| `number`     | Format Numbers            |
+| `json`       | Object to JSON            |
+| `keyvalue`   | Object to key-value pairs |
+| `async`      | Observable → value        |
+| `i18nPlural` | Text based on count       |
+| `i18nSelect` | Text based on selection   |
