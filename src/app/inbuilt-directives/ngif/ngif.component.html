@@ -1,0 +1,28 @@
+<div class="main-container">
+   <p>ngif works!</p>
+
+    <div class="inbuilt-container" *ngIf="showName">
+        <h3 >{{name}}</h3>
+    </div>
+
+    <div class="inbuilt-container" *ngIf="showName == true">
+        <h3 >{{name}}</h3>
+    </div>
+
+    <div class="inbuilt-container" *ngIf="name == 'Ajith'">
+        <h3 >{{name}}</h3>
+    </div>
+
+
+    <div class="inbuilt-container">
+        <h3  *ngIf="isLoggedIn; else notLoggedIn">Logged in Successfully!</h3>
+        <button (click)="isLoggedIn = !isLoggedIn">login</button>
+    </div>
+
+
+    <ng-template #notLoggedIn>
+        <p>Please log in to continue.</p>
+    </ng-template>
+
+
+</div>
