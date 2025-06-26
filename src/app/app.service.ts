@@ -18,11 +18,17 @@ export class AppService {
   constructor(private http: HttpClient) { }
 
   getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(this.baseUrl);
+    return this.http.get<User[]>(this.baseUrl, {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Authorization2': 'Bearer <MY-TOKEN>'
+      },
+      observe: 'body'
+    });
   }
 
   getUserById(id: number): Observable<User> {
-    const params = new HttpParams().set('id', id);
+    const params = new HttpParams();
     return this.http.get<User>(this.baseUrl, { params });
   }
 

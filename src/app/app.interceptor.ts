@@ -20,13 +20,14 @@ export class AppInterceptor implements HttpInterceptor {
 
    intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     this.spinnerService.show();
+    console.log(req)
     const cloned = req.clone({
       setHeaders: {
         Authorization: `Bearer dummy-token-from-interceptor`
       }
     });
     return next.handle(cloned).pipe(
-      delay(3000), // 💡 Add artificial delay of 3 seconds
+      delay(300), // 💡 Add artificial delay of 3 seconds
       catchError((error: HttpErrorResponse) => {
         this.errorService.handleError(error);
         return throwError(() => error);
@@ -35,3 +36,16 @@ export class AppInterceptor implements HttpInterceptor {
     );;
   }
 }
+  // return next.handle(clonedReq).pipe(
+  //     map((event) => {
+  //       if (event instanceof HttpResponse) {
+         
+
+  //         return event.clone({ body: {
+  //           ...event.body,
+  //           name: 'ajith'
+  //         } });
+  //       }
+  //       return event;
+  //     })
+  //   );
