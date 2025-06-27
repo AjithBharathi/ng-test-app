@@ -4,9 +4,10 @@ import {
   HttpHandler,
   HttpEvent,
   HttpInterceptor,
-  HttpErrorResponse
+  HttpErrorResponse,
+  HttpResponse
 } from '@angular/common/http';
-import { Observable, catchError, delay, finalize, throwError } from 'rxjs';
+import { Observable, catchError, delay, finalize, map, throwError } from 'rxjs';
 import { SpinnerService } from './spinner.service';
 import { ErrorService } from './error.service';
 
@@ -31,6 +32,18 @@ export class AppInterceptor implements HttpInterceptor {
       catchError((error: HttpErrorResponse) => {
         this.errorService.handleError(error);
         return throwError(() => error);
+      }),
+      map((event) => {
+        if(event instanceof HttpResponse){
+          console.log(event)
+          return event.clone({
+            body: {
+              ...event.body,
+              ajith: 'hellow'
+            }
+          })
+        }
+        return event
       }),
       finalize(() => this.spinnerService.hide())
     );;
